@@ -103,6 +103,90 @@ section {
   font-size: 2em;
 }
 
+
+// Homepage Header
+
+header {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    .background-cover;
+    background-position: center;
+    //background-image: url('../img/header.jpg');
+    text-align: center;
+    color: white;
+    width: 100%;
+    .header-content {
+        position: relative;
+        text-align: center;
+        padding: 100px 15px 100px;
+        width: 100%;
+        .header-content-inner {
+            h1 {
+                font-weight: 700;
+                text-transform: uppercase;
+                margin-top: 0;
+                margin-bottom: 0;
+                font-size: 30px;
+            }
+            hr {
+                margin: 30px auto;
+            }
+            p {
+                font-weight: 300;
+                color: fade(white, 70%);
+                font-size: 16px;
+                margin-bottom: 50px;
+            }
+        }
+    }
+    @media (min-width: 768px) {
+        .background-cover;
+        background-position: center;
+        text-align: center;
+        color: white;
+        width: 100%;
+        .header-content {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            padding: 0 50px;
+            .header-content-inner {
+                max-width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+                h1 {
+                    font-size: 50px;
+                }
+                p {
+                    font-size: 18px;
+                    max-width: 80%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        min-height: 50%;
+        #headvid{
+            display: none !important;
+            height: 100%;
+        }
+        .background-cover{
+        background-position: center;
+        background-image: url('../img/header.jpg');
+        text-align: center;
+        color: white;
+        width: 100%;
+        }
+        .header-content-inner {
+            margin-top:30%;
+        }
+    }
+
 /* Desktop */
   .navbar-default{
     background-color: #4da6ff !important;
