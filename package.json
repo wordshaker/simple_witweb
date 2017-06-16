@@ -6,6 +6,7 @@
   "author": "Start Bootstrap",
   "license": "MIT",
   "devDependencies": {
+    "engines":  { "npm" : "4.2.0" },
     "bootstrap": "^3.3.7",
     "browser-sync": "^2.13.0",
     "font-awesome": "^4.6.3",
@@ -32,6 +33,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "engines":  { "npm" : "4.2.0" },
     "browser-sync": "^2.18.12",
     "gulp-less": "^3.3.0"
   }
