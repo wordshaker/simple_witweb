@@ -5,6 +5,7 @@
   "homepage": "http://startbootstrap.com/template-overviews/creative",
   "author": "Start Bootstrap",
   "license": "MIT",
+  "engines":  { "npm" : "4.2.0" },
   "devDependencies": {
     "engines":  { "npm" : "4.2.0" },
     "bootstrap": "^3.3.7",
@@ -33,7 +34,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "engines":  { "npm" : "4.2.0" },
     "browser-sync": "^2.18.12",
     "gulp-less": "^3.3.0"
   }
