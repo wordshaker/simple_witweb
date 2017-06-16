@@ -105,13 +105,26 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   popd
 )
 
-IF EXIST "Gulpfile.js" (
- pushd "%DEPLOYMENT_TARGET%"
- call .\node_modules\.bin\gulp imagemin
- IF !ERRORLEVEL! NEQ 0 goto error
- popd
- 
- )
+# 3. Install NPM packages
+if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
+  cd "$DEPLOYMENT_TARGET"
+  eval $NPM_CMD install --production
+  exitWithMessageOnError "npm failed"
+  cd - > /dev/null
+fi
+
+# 4. Run Gulp Task
+if [ -e "$DEPLOYMENT_TARGET/gulpfile.js" ]; then
+  cd "$DEPLOYMENT_TARGET"
+  eval ./node_modules/.bin/gulp imagemin
+  exitWithMessageOnError "gulp failed"
+  cd - > /dev/null
+fi
+
+#5. Unzip file
+cd "$DEPLOYMENT_TARGET"
+eval unzip -o Archive.zip
+cd - > /dev/null
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
