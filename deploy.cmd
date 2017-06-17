@@ -111,7 +111,7 @@ IF /I "gulpfile.js" NEQ "" (
   echo Installing Gulp dependencies: Finished %TIME%
   IF !ERRORLEVEL! NEQ 0 goto error
   echo Running Gulp deployment: Starting %TIME%
-  call :ExecuteCmd "%DEPLOYMENT_SOURCE%\node_modules\.bin\gulp.cmd"
+  call :ExecuteCmd "%DEPLOYMENT_TARGET%\node_modules\.bin\gulp"
   echo Running Gulp deployment: Finished %TIME%
   IF !ERRORLEVEL! NEQ 0 goto error
 )
