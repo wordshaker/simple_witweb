@@ -105,6 +105,18 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   popd
 )
 
+:: 4. Restore Gulp packages and run Gulp tasks
+IF /I "gulpfile.js" NEQ "" (
+  echo Installing Gulp dependencies: Starting %TIME%
+  call npm install gulp
+  echo Installing Gulp dependencies: Finished %TIME%
+  IF !ERRORLEVEL! NEQ 0 goto error
+  echo Running Gulp deployment: Starting %TIME%
+  call :ExecuteCmd "%DEPLOYMENT_SOURCE%\node_modules\.bin\gulp"
+  echo Running Gulp deployment: Finished %TIME%
+  IF !ERRORLEVEL! NEQ 0 goto error
+)
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
 
