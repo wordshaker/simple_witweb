@@ -106,8 +106,9 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 )
 
 :: 4. Run gulp transformations
-IF EXIST "%DEPLOYMENT_TARGET%\gulpfile.js" (
-  pushd "%DEPLOYMENT_TARGET%"
+IF EXIST "%DEPLOYMENT_SOURCE%\gulpfile.js" (
+  echo Running gulp
+  pushd "%DEPLOYMENT_SOURCE%"
   call :ExecuteCmd .\node_modules\.bin\gulp
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
