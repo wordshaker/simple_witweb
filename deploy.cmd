@@ -100,23 +100,18 @@ call :SelectNodeVersion
 :: 3. Install NPM packages
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   pushd "%DEPLOYMENT_TARGET%"
-  eval $NPM_CMD install --production
-  exitWithMessageOnError "npm failed"
-  cd - > /dev/null
-fi
+  call :ExecuteCmd !NPM_CMD! install
+  IF !ERRORLEVEL! NEQ 0 goto error
+  popd
+)
 
-:: 4. Run Gulp Task
+:: 4. Run gulp transformations
 IF EXIST "%DEPLOYMENT_TARGET%\gulpfile.js" (
   pushd "%DEPLOYMENT_TARGET%"
-  eval ./node_modules/.bin/gulp imagemin
-  exitWithMessageOnError "gulp failed"
-  cd - > /dev/null
-fi
-
-::5. Unzip file
-IF EXIST "%DEPLOYMENT_TARGET%"
-eval unzip -o Archive.zip
-cd - > /dev/null
+  call :ExecuteCmd .\node_modules\.bin\gulp
+  IF !ERRORLEVEL! NEQ 0 goto error
+  popd
+)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
