@@ -11,13 +11,13 @@
   },
   "devDependencies": {
     "bootstrap": "^3.3.7",
-    "express" : "^4.15.4",
-    "browser-sync": "^2.13.0",
+    "browser-sync": "^2.18.12",
+    "express": "^4.15.4",
     "font-awesome": "^4.6.3",
     "gulp": "^3.9.1",
-    "gulp-clean-css": "^2.0.10",
-    "gulp-header": "^1.8.7",
-    "gulp-less": "^3.1.0",
+    "gulp-clean-css": "^2.4.0",
+    "gulp-header": "^1.8.8",
+    "gulp-less": "^3.3.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.4",
     "jquery": "^1.11.3",
@@ -34,12 +34,9 @@
   },
   "main": "gulpfile.js",
   "scripts": {
-        "start": "node server.js",
-        "build": "gulp",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-  "dependencies": {
-    "browser-sync": "^2.18.12",
-    "gulp-less": "^3.3.0"
-  }
+    "start": "node server.js",
+    "build": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {}
 }
