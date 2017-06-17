@@ -108,7 +108,7 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 :: 4. Restore Gulp packages and run Gulp tasks
 IF /I "gulpfile.js" NEQ "" (
   echo Installing Gulp dependencies: Starting %TIME%
-  call npm install gulp
+  ::call npm install gulp
   echo Installing Gulp dependencies: Finished %TIME%
   IF !ERRORLEVEL! NEQ 0 goto error
   echo Running Gulp deployment: Starting %TIME%
