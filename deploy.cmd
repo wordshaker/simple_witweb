@@ -106,15 +106,15 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 fi
 
 :: 4. Run Gulp Task
-if [ -e "$DEPLOYMENT_TARGET/gulpfile.js" ]; then
-  cd "$DEPLOYMENT_TARGET"
+IF EXIST "%DEPLOYMENT_TARGET%\gulpfile.js" (
+  pushd "%DEPLOYMENT_TARGET%"
   eval ./node_modules/.bin/gulp imagemin
   exitWithMessageOnError "gulp failed"
   cd - > /dev/null
 fi
 
 ::5. Unzip file
-cd "$DEPLOYMENT_TARGET"
+IF EXIST "%DEPLOYMENT_TARGET%"
 eval unzip -o Archive.zip
 cd - > /dev/null
 
