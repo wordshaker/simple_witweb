@@ -35,8 +35,7 @@
   "main": "gulpfile.js",
   "scripts": {
         "start": "node server.js",
-        "build": "gulp",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "gulp"
     },
   "dependencies": {
     "browser-sync": "^2.18.12",
