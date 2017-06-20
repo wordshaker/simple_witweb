@@ -23,3 +23,7 @@ script: gulp
 cache:
   directories:
     - "node_modules"
+
+deploy:
+  provider: azure_web_apps
+  skip_cleanup: true
