@@ -26,4 +26,5 @@ cache:
 
 deploy:
   provider: azure_web_apps
+  file: witweb.zip
   skip_cleanup: true
