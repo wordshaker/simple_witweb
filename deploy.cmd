@@ -97,34 +97,24 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
 :: 2. Select node version
 call :SelectNodeVersion
 
-:: 3. Install npm packages
+:: 3. Install NPM packages
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   pushd "%DEPLOYMENT_TARGET%"
-  call :ExecuteCmd !NPM_CMD! install --production
+  call :ExecuteCmd !NPM_CMD! install
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
 
-# 3. Install NPM packages
-if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
-  cd "$DEPLOYMENT_TARGET"
-  eval $NPM_CMD install --production
-  exitWithMessageOnError "npm failed"
-  cd - > /dev/null
-fi
-
-# 4. Run Gulp Task
-if [ -e "$DEPLOYMENT_TARGET/gulpfile.js" ]; then
-  cd "$DEPLOYMENT_TARGET"
-  eval ./node_modules/.bin/gulp imagemin
-  exitWithMessageOnError "gulp failed"
-  cd - > /dev/null
-fi
-
-#5. Unzip file
-cd "$DEPLOYMENT_TARGET"
-eval unzip -o Archive.zip
-cd - > /dev/null
+:: 4. Restore Gulp packages and run Gulp tasks
+IF /I "gulpfile.js" NEQ "" (
+  echo Installing Gulp dependencies: Starting %TIME%
+  echo Installing Gulp dependencies: Finished %TIME%
+  IF !ERRORLEVEL! NEQ 0 goto error
+  echo Running Gulp deployment: Starting %TIME%
+  call :ExecuteCmd "%DEPLOYMENT_TARGET%\node_modules\.bin\gulp"
+  echo Running Gulp deployment: Finished %TIME%
+  IF !ERRORLEVEL! NEQ 0 goto error
+)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
