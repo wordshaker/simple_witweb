@@ -85,37 +85,29 @@ goto :EOF
 :: Deployment
 :: ----------
 
-:Deployment
+::Deployment
 echo Handling node.js deployment.
 
-:: 1. KuduSync
-IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
-  call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_SOURCE%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
-  IF !ERRORLEVEL! NEQ 0 goto error
-)
-
-:: 2. Select node version
+:: 1. Select node version
 call :SelectNodeVersion
 
-:: 3. Install NPM packages
-IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
-  pushd "%DEPLOYMENT_TARGET%"
+:: 2. Install npm packages
+IF EXIST "%DEPLOYMENT_SOURCE%\package.json" (
   call :ExecuteCmd !NPM_CMD! install
   IF !ERRORLEVEL! NEQ 0 goto error
-  popd
 )
 
-:: 4. Restore Gulp packages and run Gulp tasks
-IF /I "gulpfile.js" NEQ "" (
-  echo Installing Gulp dependencies: Starting %TIME%
-  echo Installing Gulp dependencies: Finished %TIME%
-  IF !ERRORLEVEL! NEQ 0 goto error
-  echo Running Gulp deployment: Starting %TIME%
-  call :ExecuteCmd "%DEPLOYMENT_TARGET%\node_modules\.bin\gulp"
-  echo Running Gulp deployment: Finished %TIME%
-  IF !ERRORLEVEL! NEQ 0 goto error
+:: 3. Execute Gulp
+IF EXIST "%DEPLOYMENT_SOURCE%\gulpfile.js" (
+    call .\node_modules\.bin\gulp build
+    IF !ERRORLEVEL! NEQ 0 goto error
 )
 
+:: 4. KuduSync
+IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
+  call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_SOURCE%\dist" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
+  IF !ERRORLEVEL! NEQ 0 goto error
+)
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
 
