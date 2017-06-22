@@ -79,13 +79,15 @@ gulp.task('copy', function() {
 gulp.task('build', function() {
   // Your way to build a website for production-ready. Example:
   return gulp.src([
-                    './css',
-                    './favicon',
-                    './fonts',
-                    './img',
-                    './js',
-                    './less',
-                    './vendor',
+                    './css/*',
+                    './favicon/*',
+                    './fonts/*',
+                    './img/*',
+                    './img/*/*',
+                    './js/*',
+                    './less/*',
+                    './vendor/*',
+                    './vendor/*/*',
                     './index.html',
                  ])
     .pipe(gulp.dest('./dist'));
