@@ -75,8 +75,24 @@ gulp.task('copy', function() {
         .pipe(gulp.dest('vendor/font-awesome'))
 })
 
+//build
+gulp.task('build', function() {
+  // Your way to build a website for production-ready. Example:
+  return gulp.src([
+                    './css',
+                    './favicon',
+                    './fonts',
+                    './img',
+                    './js',
+                    './less',
+                    './vendor',
+                    './index.html',
+                 ])
+    .pipe(gulp.dest('./dist'));
+})
+
 // Run everything
-gulp.task('default', ['less', 'minify-css', 'minify-js', 'copy']);
+gulp.task('default', ['less', 'minify-css', 'minify-js', 'copy', 'build']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function() {
