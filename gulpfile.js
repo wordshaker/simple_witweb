@@ -81,15 +81,12 @@ gulp.task('build', function() {
   return gulp.src([
                     './css/*',
                     './favicon/*',
-                    './fonts/*',
-                    './img/*',
-                    './img/*/*',
-                    './js/*',
-                    './less/*',
-                    './vendor/*',
-                    './vendor/*/*',
+                    'img/**/*',
+                    'fonts/*',
+                    'js/*',
+                    'vendor/**/*',
                     './index.html',
-                 ])
+                 ], {base: '.'})
     .pipe(gulp.dest('./dist'));
 })
 

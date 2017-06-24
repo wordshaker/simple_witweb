@@ -1,0 +1,352 @@
+h1 {
+  color: #13508A;
+  font-family: 'Raleway', sans-serif;
+  font-size: 2.5em !important;
+  font-weight: 800;
+}
+h2 {
+  color: #13508A;
+  font-size: 25px !important;
+}
+h3 {
+  color: #fff;
+  font-size: 25px !important;
+  font-style: italic;
+  font-weight: 400 !important;
+  margin-top: 0px;
+}
+p{
+  color: #13508A;
+  font-size: 16px;
+}
+
+.text-primary, a{
+  color: #13508A;
+}
+section {
+  font-family: 'Merriweather', serif;
+}
+
+.bg-light-blue {
+  background-color:#9CC1E4;
+  padding: 150px 0;
+}
+
+.bg-drk-blue {
+  background-color:#6B9CCC;
+  padding: 150px 0;
+}
+
+.hero-image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -2;
+  display: block;
+  background-image: url(../images/hero.png);
+  width: 100%;
+  height: 800px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.mailsection{
+  padding: 15px 0px 15px 0px;
+}
+.hero {
+  padding-top: 50px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.hero-section {
+  width: 100%;
+  height: 800px;
+  display: block;
+  position: relative;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  text-align: center;
+  padding: 0 0 0 0 !important;
+}
+
+.content-section img {
+  width: 50%;
+}
+.content-section .right {
+  margin-left: 20px;
+  width: 45%;
+}
+/* Overriding bootstrap navbar */
+.navbar {
+  margin-bottom: 0 !important;
+  border: none !important;
+}
+.event-details-h2 {
+  border-top: 2px solid #2a4c9b;
+  border-bottom: 2px solid #2a4c9b;
+  padding: .5em;
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.subscribe-form{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.hero-header p:nth-child(1) {
+  font-size: 2em;
+}
+
+
+// Homepage Header
+
+header {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    .background-cover;
+    background-position: center;
+    //background-image: url('../img/header.jpg');
+    text-align: center;
+    color: white;
+    width: 100%;
+    .header-content {
+        position: relative;
+        text-align: center;
+        padding: 100px 15px 100px;
+        width: 100%;
+        .header-content-inner {
+            h1 {
+                font-weight: 700;
+                text-transform: uppercase;
+                margin-top: 0;
+                margin-bottom: 0;
+                font-size: 30px;
+            }
+            hr {
+                margin: 30px auto;
+            }
+            p {
+                font-weight: 300;
+                color: fade(white, 70%);
+                font-size: 16px;
+                margin-bottom: 50px;
+            }
+        }
+    }
+    @media (min-width: 768px) {
+        .background-cover;
+        background-position: center;
+        text-align: center;
+        color: white;
+        width: 100%;
+        .header-content {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            padding: 0 50px;
+            .header-content-inner {
+                max-width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+                h1 {
+                    font-size: 50px;
+                }
+                p {
+                    font-size: 18px;
+                    max-width: 80%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        min-height: 50%;
+        #headvid{
+            display: none !important;
+            height: 100%;
+        }
+        .background-cover{
+        background-position: center;
+        background-image: url('../img/header.jpg');
+        text-align: center;
+        color: white;
+        width: 100%;
+        }
+        .header-content-inner {
+            margin-top:30%;
+        }
+    }
+
+/* Desktop */
+  .navbar-default{
+    background-color: #4da6ff !important;
+  }
+  
+  /* buttons */
+  .social-btn-hm{
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+
+  .btn-wit{
+    color: #4da6ff;
+    background-color: white;
+    border-color: #4da6ff;
+  }
+
+  /* text */
+  .wit-text{
+    color: #4da6ff;
+    font-size: 16px;
+  }
+
+  /* images */
+  .wit-logo{
+    width: 425px;
+    height: 300px;
+    margin-top: 5%;
+  }
+
+  .esendex-logo{
+    margin-left: -5%;
+  }
+  
+  .wit-nav{
+    margin-top: 2%;
+    margin-bottom: 1%;
+    margin-left: -30px;
+    height: 40px;
+  }
+  .frontdoor{
+    margin-top:60px;
+  }
+
+  .cake{
+    height: 400px;
+    width: 450px;
+  }
+
+/* Google map */
+
+  .mapstyle{
+    margin-top:30px;
+  }
+
+/* iPad */
+@media(max-width: 1024px) {
+  
+  .bg-light-blue {
+    padding: 100px 0;
+  }
+
+  .bg-drk-blue {
+    padding: 100px 0;
+  }
+  .mailsection{
+    padding: 15px 0px 15px 0px;
+  }
+  .hero {
+    height: 650px;
+  }
+
+  .hero-image {
+    height: 650px;
+  }
+
+  .hero-section {
+    height: 650px;
+  }
+
+  .wit-logo{
+    width: 425px;
+    height: 300px;
+  }
+  .wit-nav{
+    margin-top: 4%;
+    margin-bottom: 1%;
+    margin-left: -30px;
+    height: 40px;
+  }
+
+  .cake{
+     display: none;
+  }
+  .frontdoor{
+    margin-top:30px;
+  }
+
+  /* buttons */
+  .social-btn-hm{
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+}
+
+/* iPhone 6*/
+@media (max-width: 667px) {
+  
+  .bg-light-blue {
+    padding: 75px 0;
+  }
+
+  .bg-drk-blue {
+    padding: 75px 0;
+  } 
+  .hero {
+    height: 670px;
+  }
+
+  .content-section {
+    height: 100%;
+
+  }
+
+  .content-section img {
+    width: 100%;
+  }
+  .content-section .right {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .bg-drk-blue {
+    background-color:#6B9CCC;
+    height: 900px !important;
+    padding: 20px 0;
+  }
+
+  .hero-section {
+    height: 650px;
+  }
+  .wit-logo{
+    width: 300px;
+    height: 220px;
+  }
+  .wit-nav{
+    margin-top: 4%;
+    margin-bottom: 1%;
+    margin-left: -30px;
+    height: 40px;
+  }
+  .frontdoor{
+    margin: 30px 30px 30px 30px;
+    height: 30%;
+    width: 50% !important;
+  }
+  
+  /* buttons */
+  .social-btn-hm{
+    margin-top: 2%;
+    margin-bottom: 1%;
+  }
+}
