@@ -29,6 +29,9 @@ a:hover,
 a:focus {
   color: #e6e600;
 }
+li {
+  color: #3D3D3D;
+}
 h1,
 h2,
 h3,
@@ -64,6 +67,12 @@ aside {
 }
 .no-padding {
   padding: 0;
+}
+.sponsors {
+  padding-left: 25%;
+}
+.sponsorsind {
+  margin-bottom: 15px;
 }
 .navbar-default {
   background-color: white;
