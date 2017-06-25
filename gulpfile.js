@@ -86,6 +86,7 @@ gulp.task('build', function() {
                     'js/*',
                     'vendor/**/*',
                     './index.html',
+                    './web.config'
                  ], {base: '.'})
     .pipe(gulp.dest('./dist'));
 })
