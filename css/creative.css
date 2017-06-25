@@ -235,6 +235,18 @@ header .header-content .header-content-inner p {
     margin-top: 30%;
   }
 }
+.subheader {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  width: 100%;
+  background-image: url(../img/subheader.jpg);
+  height: 738px;
+}
 .section-heading {
   margin-top: 0;
 }
